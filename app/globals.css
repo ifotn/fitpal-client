@@ -33,3 +33,69 @@ h1 {
   font-weight: bold;
   font-size: xx-large;
 }
+
+h2 {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: x-large;
+}
+
+h3 {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: large;
+}
+
+button {
+  background-color: #3b82f6;
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border: none;
+}
+
+button:hover {
+  background-color: #1e40af;
+  cursor: pointer;
+}
+
+input, textarea {
+  border: 1px solid;
+  border-color: grey;
+  width: 450px;
+  border-radius: 0.25rem;
+}
+
+input.focus textarea.focus  {
+  box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5);
+}
+
+textarea, .rte {
+  height: 300px;
+}
+
+label {
+  width: 200px;
+  display: block;
+}
+
+fieldset {
+  margin-bottom: 10px;
+}
+
+.card {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  max-width: 24rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+  background-color: #ffffff;
+  margin: 1rem;
+}
