@@ -105,3 +105,9 @@ fieldset {
   font-weight: bold;
   margin-left: 5px;
 }
+
+  .success {
+    color: darkgreen;
+    font-weight: bold;
+    margin-left: 5px;
+  }

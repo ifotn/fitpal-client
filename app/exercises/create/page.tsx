@@ -20,12 +20,38 @@ export default function CreateExercise() {
     });
 
     const onSubmit = async (data:FormData) => {
-        console.log(`Submitted: `, data);
+        // console.log(`Submitted: `, data);
+
+        try {
+            // build json payload from form data
+            const payload = {
+                name: data.name,
+                intensity: data.intensity,
+                duration: data.duration
+            };
+
+            // get server api url from env var
+            const apiDomain: string = process.env.NEXT_PUBLIC_API_DOMAIN!;
+
+            // try POST request to server api
+            const res: Response = await fetch(`${apiDomain}/exercises`, {
+               method: 'POST',
+               headers: { 'Content-Type': 'application/json' },
+               body: JSON.stringify(payload)
+            });
+
+            const apiResponse = await res.json();
+            console.log(apiResponse);
+        }
+        catch (error: unknown) {
+            console.log(error);
+        }
     }
 
     return (
         <main>
             <h1>Exercise Details</h1>
+            {isSubmitSuccessful && <p className="success">Exercise Created</p>}
             <form onSubmit={handleSubmit(onSubmit)}>
                 <fieldset>
                     <label htmlFor="name">Name:</label>
