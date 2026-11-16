@@ -16,6 +16,7 @@ export default async function Exercises() {
     return (
         <main>
             <h1>Exercises</h1>
+            <Link href="/exercises/create" className="button">Add an Exercise</Link>
             <ul>
                 {exercises.map((exercise) => (
                     <li key={exercise._id} className="card">
