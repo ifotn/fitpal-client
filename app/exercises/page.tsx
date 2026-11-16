@@ -3,8 +3,12 @@ import Link from "next/link";
 
 export default async function Exercises() {
     "use cache";
+
+    // get server api url from env var
+    const apiDomain: string = process.env.NEXT_PUBLIC_API_DOMAIN!;
+
     // fetch exercise data from express server api
-    const response: Response = await fetch('http://localhost:4000/api/v1/exercises');
+    const response: Response = await fetch(`${apiDomain}/exercises`);
 
     // convert response to array of exercises using our Exercise type
     const exercises: Exercise[] = await response.json();
