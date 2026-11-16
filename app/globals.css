@@ -99,3 +99,9 @@ fieldset {
   background-color: #ffffff;
   margin: 1rem;
 }
+
+.error {
+  color: firebrick;
+  font-weight: bold;
+  margin-left: 5px;
+}
