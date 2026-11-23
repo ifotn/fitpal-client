@@ -2,14 +2,19 @@ import { Exercise } from "@/app/types/exercise";
 import Link from "next/link";
 import EditDeleteButtons from "@/app/components/editDeleteButtons";
 
+// disable pre-rendering
+export const instant = false;
+
 export default async function Exercises() {
-    "use cache";
+    //"use cache";
 
     // get server api url from env var
     const apiDomain: string = process.env.NEXT_PUBLIC_API_DOMAIN!;
 
     // fetch exercise data from express server api
-    const response: Response = await fetch(`${apiDomain}/exercises`);
+    const response: Response = await fetch(`${apiDomain}/exercises`, {
+        cache: "no-store"
+    });
 
     // convert response to array of exercises using our Exercise type
     const exercises: Exercise[] = await response.json();

@@ -9,13 +9,18 @@ interface FormData {
     duration: number;
 }
 
-export default function EditExerciseForm() {
-    // set up react-hook-form
+type Props = {
+    id: string;
+    exercise: Exercise;
+}
+
+export default function EditExerciseForm({ id, exercise }: Props) {
+    // set up react-hook-form, populating default values from exercise prop passed from parent page
     const { register, handleSubmit, formState: { errors, isSubmitSuccessful }} = useForm<FormData>({
         defaultValues: {
-            name: '',
-            intensity: '',
-            duration: 0
+            name: exercise.name,
+            intensity: exercise.intensity,
+            duration: exercise.duration
         }
     });
 
@@ -34,7 +39,7 @@ export default function EditExerciseForm() {
             const apiDomain: string = process.env.NEXT_PUBLIC_API_DOMAIN!;
 
             // try PUT request to server api
-            const res: Response = await fetch(`${apiDomain}/exercises`, {
+            const res: Response = await fetch(`${apiDomain}/exercises/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
