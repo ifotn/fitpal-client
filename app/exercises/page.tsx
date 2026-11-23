@@ -1,5 +1,6 @@
 import { Exercise } from "@/app/types/exercise";
 import Link from "next/link";
+import EditDeleteButtons from "@/app/components/editDeleteButtons";
 
 export default async function Exercises() {
     "use cache";
@@ -26,6 +27,7 @@ export default async function Exercises() {
                             <p>Intensity: {exercise.intensity}</p>
                             <p>Date: {new Date(exercise.date).toLocaleDateString()}</p>
                         </Link>
+                        <EditDeleteButtons id={exercise._id} />
                     </li>
                 ))}
             </ul>
